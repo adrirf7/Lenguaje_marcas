@@ -1,0 +1,24 @@
+th {
+  padding: 10px 20px 10px 20px;
+}
+.bases {
+  background-color: orange;
+}
+.sistemas {
+  background-color: rgb(4, 177, 4);
+}
+.optativa {
+  background-color: rgb(255, 230, 0);
+}
+.lenguajes {
+  background-color: rgb(209, 0, 209);
+}
+.entornos {
+  background-color: rgb(182, 180, 180);
+}
+.progra {
+  background-color: rgb(76, 152, 238);
+}
+.empleo {
+  background-color: rgb(224, 127, 98);
+}

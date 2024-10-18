@@ -1,0 +1,46 @@
+.ul_navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.li_navbar {
+  float: left;
+}
+
+.li_navbar a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.li_navbar a:hover {
+  background-color: #111;
+}
+header {
+  text-align: center;
+  background-color: #eeb32b;
+}
+.toledo_img {
+  width: 600px;
+  height: 400px;
+  float: right;
+}
+
+.toledo_home {
+  border: 5px solid black;
+  border-radius: 5px;
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+iframe {
+  height: 400px;
+}
+.container {
+  padding: 10px 70px;
+}

@@ -35,6 +35,45 @@
         <i class="fa fa-bars"></i>
       </a>
     </div>
-    <div class="container"></div>
+    <div class="container">
+      <div class="container-form">
+        <h3 style="margin-bottom: 20px; color: #950707">Compra Tus entradas</h3>
+        <form action="ejemplo.php" method="get">
+          <label for="email">Ingresa tu email:</label>
+          <input type="email" id="email" name="email" />
+          <p>
+            Tipo de entrada: <input type="radio" name="hm" value="h" /> Normal
+            19,99€ <input type="radio" name="hm" value="m" /> VIP 25,00€
+          </p>
+          <label for="numero">Cantidad:</label>
+          <select id="numero" name="numero">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <p>
+            <input type="submit" value="Enviar" />
+            <input type="reset" value="Borrar" />
+          </p>
+        </form>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 Tu Sitio Web. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="#">Términos y Condiciones</a> |
+          <a href="#">Política de Privacidad</a> |
+          <a href="#">Contacto</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

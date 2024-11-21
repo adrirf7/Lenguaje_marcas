@@ -1,0 +1,87 @@
+/* Navbar general styles */
+.topnav {
+  background: rgb(68, 0, 92);
+  background: linear-gradient(
+    90deg,
+    rgba(68, 0, 92, 1) 0%,
+    rgba(180, 43, 222, 1) 28%,
+    rgba(100, 4, 255, 1) 100%
+  );
+  height: 10vh; /* Aumentar el grosor (altura) del navbar */
+  display: flex; /* Usar Flexbox */
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  overflow: hidden;
+  padding: 0 16px;
+}
+
+/* Estilo de los enlaces */
+.topnav a {
+  color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 16px; /* Ajustar padding para mantener espacio interno */
+  text-decoration: none;
+  font-size: 18px; /* Tamaño de texto ligeramente mayor */
+  display: block;
+}
+
+/* Efecto hover */
+.topnav a:hover {
+  color: #240446;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+/* Icono del menú hamburguesa */
+.topnav .icon {
+  display: none; /* Ocultar en pantallas grandes */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Estilos para pantallas móviles */
+@media screen and (max-width: 600px) {
+  .topnav {
+    flex-direction: row; /* Mantener los elementos en fila inicialmente */
+    justify-content: space-between; /* Separar enlaces e icono del menú */
+  }
+
+  .topnav a {
+    display: none; /* Ocultar enlaces excepto el primero */
+  }
+
+  .topnav a.icon {
+    display: block; /* Mostrar icono del menú */
+  }
+
+  .topnav.responsive {
+    flex-direction: column; /* Apilar elementos verticalmente */
+    align-items: flex-start; /* Alinear enlaces a la izquierda */
+    height: auto; /* Ajustar altura automáticamente */
+  }
+
+  .topnav.responsive a {
+    display: block;
+    text-align: left;
+    padding: 14px;
+    width: 100%;
+  }
+
+  .topnav.responsive .icon {
+    align-self: flex-start; /* Mantener el icono a la derecha */
+  }
+}
+
+.container {
+  font-size: 18px;
+  padding: 30px;
+  color: #f2f2f2;
+}
+
+.datos_academicos {
+  margin-top: 20px;
+}
+.flecha {
+  background-color: yellow;
+}

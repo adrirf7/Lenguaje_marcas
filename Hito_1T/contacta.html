@@ -19,6 +19,68 @@
       href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap"
       rel="stylesheet"
     />
+    <script>
+      function validarFormulario() {
+        // Validar Nombre/Empresa
+        var nombre = document.getElementById("nombre").value;
+        var nombreRegex = /^[A-Za-z0-9\s]+$/; // Permite letras, números y espacios
+        if (nombre.length < 3 || !nombreRegex.test(nombre)) {
+          alert(
+            "El nombre/empresa debe tener al menos 3 caracteres y no ser solo números."
+          );
+          return false;
+        }
+
+        // Validar Sector/Profesión
+        var sector = document.getElementById("sector").value;
+        var sectorRegex = /^[A-Za-z\s]+$/; // Solo letras
+        if (sector.length < 3 || !sectorRegex.test(sector)) {
+          alert(
+            "El sector/profesión debe tener al menos 3 caracteres y solo contener letras."
+          );
+          return false;
+        }
+
+        // Validar País
+        var pais = document.getElementById("pais").value;
+        var paisesValidos = [
+          "España",
+          "Portugal",
+          "Francia",
+          "Inglaterra",
+          "Alemania",
+        ];
+        if (!paisesValidos.includes(pais)) {
+          alert("Por favor, selecciona un país válido.");
+          return false;
+        }
+
+        // Validar Correo Electrónico
+        var email = document.getElementById("email").value;
+        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+          alert("Por favor, ingresa un correo electrónico válido.");
+          return false;
+        }
+
+        // Validar Teléfono
+        var telefono = document.getElementById("telefono").value;
+        var telefonoRegex = /^\d{8,12}$/; // Solo dígitos, entre 8 y 12 caracteres
+        if (!telefonoRegex.test(telefono)) {
+          alert("El teléfono debe tener entre 8 y 12 dígitos.");
+          return false;
+        }
+
+        // Validar Mensaje
+        var mensaje = document.getElementById("mensaje").value;
+        if (mensaje.split(" ").length < 5) {
+          alert("El mensaje debe contener al menos 5 palabras.");
+          return false;
+        }
+
+        return true; // Si todo es válido, el formulario se envía
+      }
+    </script>
   </head>
   <body
     style="
@@ -45,6 +107,36 @@
         <a href="./contacta.html">Contáctame</a>
       </a>
     </div>
-    <div class="container"></div>
+    <div class="container">
+      <body>
+        <h2 style="color: #8a00d5">Formulario de Contacto</h2>
+        <form onsubmit="return validarFormulario()">
+            <label for="nombre">Nombre/Empresa:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+    
+            <label for="sector">Sector/Profesión:</label>
+            <input type="text" id="sector" name="sector" required><br><br>
+    
+            <label for="pais">País:</label>
+            <select id="pais" name="pais" required>
+                <option value="España">España</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Francia">Francia</option>
+                <option value="Inglaterra">Inglaterra</option>
+                <option value="Alemania">Alemania</option>
+            </select><br><br>
+    
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" required><br><br>
+    
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br><br>
+    
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
   </body>
 </html>

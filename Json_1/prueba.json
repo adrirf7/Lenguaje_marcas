@@ -1,0 +1,40 @@
+{
+    "frutas": [
+      {
+        "nombre": "Manzana",
+        "color": "Rojo",
+        "peso_promedio_gramos": 150,
+        "es_tropical": false,
+        "vitaminas": ["A", "C", "E"]
+      },
+      {
+        "nombre": "Banana",
+        "color": "Amarillo",
+        "peso_promedio_gramos": 120,
+        "es_tropical": true,
+        "vitaminas": ["B6", "C"]
+      },
+      {
+        "nombre": "Naranja",
+        "color": "Naranja",
+        "peso_promedio_gramos": 130,
+        "es_tropical": true,
+        "vitaminas": ["C", "B1"]
+      },
+      {
+        "nombre": "Fresa",
+        "color": "Rojo",
+        "peso_promedio_gramos": 20,
+        "es_tropical": false,
+        "vitaminas": ["C", "K"]
+      },
+      {
+        "nombre": "Piña",
+        "color": "Amarillo",
+        "peso_promedio_gramos": 1000,
+        "es_tropical": true,
+        "vitaminas": ["C", "B6", "E"]
+      }
+    ]
+  }
+  

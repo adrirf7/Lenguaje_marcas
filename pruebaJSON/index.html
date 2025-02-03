@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mostrar JSON</title>
+    <style>
+      table {
+        width: 50%;
+        border-collapse: collapse;
+        margin: 20px auto;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Datos desde JSON</h1>
+    <div id="data-container" style="text-align: center">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Ciudad</th>
+          </tr>
+        </thead>
+        <tbody id="data-table-body">
+          <!-- Los datos se cargarán aquí -->
+        </tbody>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

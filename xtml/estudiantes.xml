@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<estudiantes>
+    <estudiante>
+        <nombre>Ana Rodríguez</nombre>
+        <edad>20</edad>
+        <dni>12345678A</dni>
+        <referencia>001</referencia>
+        <curso>1º DAM</curso>
+        <asignaturas>
+            <asignatura obligatoria="true">
+                <nombre>Matemáticas</nombre>
+                <nota>7.5</nota>
+            </asignatura>
+            <asignatura obligatoria="true">
+                <nombre>Programación</nombre>
+                <nota>8.0</nota>
+            </asignatura>
+            <asignatura obligatoria="false">
+                <nombre>Inglés</nombre>
+                <nota>9.0</nota>
+            </asignatura>
+        </asignaturas>
+    </estudiante>
+    <estudiante>
+        <nombre>Jorge López</nombre>
+        <edad>21</edad>
+        <dni>87654321B</dni>
+        <referencia>002</referencia>
+        <curso>1º DAM</curso>
+        <asignaturas>
+            <asignatura obligatoria="true">
+                <nombre>Matemáticas</nombre>
+                <nota>4.0</nota>
+            </asignatura>
+            <asignatura obligatoria="true">
+                <nombre>Programación</nombre>
+                <nota>5.5</nota>
+            </asignatura>
+            <asignatura obligatoria="false">
+                <nombre>Inglés</nombre>
+                <nota>6.0</nota>
+            </asignatura>
+        </asignaturas>
+    </estudiante>
+</estudiantes>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estudiantes</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      th,
+      td {
+        text-align: center;
+        padding: 8px;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .suspenso {
+        background-color: #f8d7da;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Información de Estudiantes</h1>
+    <table id="tabla-estudiantes">
+      <thead id="tabla-encabezado">
+        <!-- Encabezado dinámico -->
+      </thead>
+      <tbody id="tabla-cuerpo">
+        <!-- Contenido dinámico -->
+      </tbody>
+      <tfoot id="tabla-pie">
+        <!-- Promedio general del grupo -->
+      </tfoot>
+    </table>
+    <script>
+      // Función para cargar y procesar el XML
+      function cargarXML() {
+        fetch("estudiantes.xml")
+          .then((response) => response.text())
+          .then((data) => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data, "application/xml");
+
+            // Procesar estudiantes
+            const estudiantes = xmlDoc.getElementsByTagName("estudiante");
+            const tablaEncabezado = document.getElementById("tabla-encabezado");
+            const tablaCuerpo = document.getElementById("tabla-cuerpo");
+            const tablaPie = document.getElementById("tabla-pie");
+
+            // Extraer nombres de asignaturas (dinámicamente)
+            const asignaturasSet = new Set();
+            for (const estudiante of estudiantes) {
+              const asignaturas = estudiante.getElementsByTagName("asignatura");
+              for (const asignatura of asignaturas) {
+                asignaturasSet.add(
+                  asignatura.getElementsByTagName("nombre")[0].textContent
+                );
+              }
+            }
+            const asignaturas = Array.from(asignaturasSet);
+
+            // Crear encabezado de la tabla
+            let encabezadoHTML = "<tr><th>Nombre</th>";
+            asignaturas.forEach((asignatura) => {
+              encabezadoHTML += `<th>${asignatura}</th>`;
+            });
+            encabezadoHTML += "<th>Promedio</th></tr>";
+            tablaEncabezado.innerHTML = encabezadoHTML;
+
+            // Procesar estudiantes y llenar la tabla
+            let sumaGeneral = 0;
+            let totalEstudiantes = 0;
+
+            for (const estudiante of estudiantes) {
+              const nombre =
+                estudiante.getElementsByTagName("nombre")[0].textContent;
+              const asignaturas = estudiante.getElementsByTagName("asignatura");
+
+              let sumaNotas = 0;
+              let cantidadNotas = 0;
+              let filaHTML = `<tr><td>${nombre}</td>`;
+
+              asignaturas.forEach((asignatura) => {
+                const nombreAsignatura =
+                  asignatura.getElementsByTagName("nombre")[0].textContent;
+                const nota = parseFloat(
+                  asignatura.getElementsByTagName("nota")[0].textContent
+                );
+
+                filaHTML += `<td>${nota.toFixed(1)}</td>`;
+                sumaNotas += nota;
+                cantidadNotas++;
+              });
+
+              // Promedio individual
+              const promedio = sumaNotas / cantidadNotas;
+              filaHTML += `<td>${promedio.toFixed(2)}</td></tr>`;
+              sumaGeneral += promedio;
+              totalEstudiantes++;
+
+              // Resaltar estudiantes con promedio < 5
+              if (promedio < 5) {
+                tablaCuerpo.innerHTML += filaHTML.replace(
+                  "<tr>",
+                  '<tr class="suspenso">'
+                );
+              } else {
+                tablaCuerpo.innerHTML += filaHTML;
+              }
+            }
+
+            // Promedio general del grupo
+            const promedioGeneral = sumaGeneral / totalEstudiantes;
+            tablaPie.innerHTML = `<tr><td colspan="${
+              asignaturas.length + 1
+            }">Promedio General</td><td>${promedioGeneral.toFixed(
+              2
+            )}</td></tr>`;
+          })
+          .catch((error) =>
+            console.error("Error cargando el archivo XML:", error)
+          );
+      }
+
+      // Cargar XML al iniciar la página
+      cargarXML();
+    </script>
+  </body>
+</html>

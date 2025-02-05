@@ -19,30 +19,138 @@
     .nav-item {
       margin: 0 15px;
     }
+    .text-container {
+      margin-right: 50px; /* Ajusta el valor como desees */
+    }
+    .text-container p {
+      margin-bottom: 50px; /* Ajusta el valor como desees */
+    }
+    iframe {
+      margin-bottom: 50px;
+    }
   </style>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div
           class="collapse navbar-collapse justify-content-center"
           id="navbarNav"
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#descripcion">Inicio</a>
+              <a class="nav-link" href="./index.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#imagen">Galeria</a>
+              <a class="nav-link" href="./galeria.html">Galería</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#map">Reseñas</a>
+              <a class="nav-link" href="./reseñas.html">Reseñas</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <div class="container mt-5">
-      <h1>Napoles</h1>
+      <h1>Getafe</h1>
+      <div class="row">
+        <!-- Columna para el texto -->
+        <div class="col-lg-6 text-container">
+          <p>
+            Getafe es una ciudad situada al sur de Madrid, España. Con una
+            fuerte tradición industrial y un importante crecimiento urbano, es
+            uno de los principales municipios del área metropolitana madrileña.
+            Alberga la Universidad Carlos III, una de las más prestigiosas del
+            país, y cuenta con una destacada actividad cultural y deportiva.
+            Getafe también es conocida por su base aérea, una de las más
+            antiguas de España, y por su equipo de fútbol, el Getafe CF, que ha
+            competido en la Primera División. Con una combinación de historia,
+            modernidad y calidad de vida, es una ciudad en constante evolución.
+            <br />
+            <br />
+            Getafe tiene un clima mediterráneo continentalizado, con estaciones
+            bien diferenciadas a lo largo del año. Los veranos son calurosos y
+            secos, alcanzando temperaturas que superan los 35°C en los meses de
+            julio y agosto, mientras que los inviernos son fríos, con mínimas
+            que pueden descender por debajo de 0°C, especialmente en diciembre y
+            enero. <br />
+            <br />
+            Las precipitaciones son moderadas y se reparten de forma irregular,
+            siendo más frecuentes en otoño y primavera. Aunque la nieve no es
+            habitual, puede presentarse en los meses más fríos. En general,
+            Getafe disfruta de muchas horas de sol al año, con un clima que
+            combina los contrastes del interior peninsular con la influencia
+            mediterránea.
+          </p>
+          <img
+            src="./img/getafe.jpg"
+            alt="ciudad_getafe"
+            class="img-fluid mb-3"
+          />
+        </div>
+        <div class="col-lg-5">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28873.79848157167!2d-3.755001303794878!3d40.3049862513282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42209a1ebb8201%3A0x20c3fa90b7e442fc!2sGetafe%2C%20Madrid!5e1!3m2!1ses!2ses!4v1738746688346!5m2!1ses!2ses"
+            width="100%"
+            height="420"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <h1>Información Meteorológica de Getafe</h1>
+          <!-- Contenedor donde se mostrará la información -->
+          <div id="infoClima">
+            <p>Cargando...</p>
+          </div>
+        </div>
+      </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const API_URL =
+          "https://www.el-tiempo.net/api/json/v2/provincias/28/municipios/28065";
+        const contenido = document.getElementById("infoClima");
+
+        fetch(API_URL)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Error HTTP: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log("Respuesta de la API:", data); // <-- Debugging en consola
+            contenido.innerHTML = ""; // Limpiar "Cargando..."
+
+            // Verificar si hay datos antes de mostrarlos
+            if (!data.municipio || !data.temperaturas) {
+              contenido.innerHTML = "<p>No hay datos disponibles.</p>";
+              return;
+            }
+
+            contenido.innerHTML += `<p><strong>Municipio:</strong> ${data.municipio.NOMBRE}</p>`;
+            contenido.innerHTML += `<p><strong>Provincia:</strong> ${data.municipio.NOMBRE_PROVINCIA}</p>`;
+            contenido.innerHTML += `<p><strong>Temperatura Actual:</strong> ${data.temperatura_actual}ºC  </p>`;
+            contenido.innerHTML += `<p><strong>Temperatura Máxima:</strong> ${data.temperaturas.max}°C</p>`;
+            contenido.innerHTML += `<p><strong>Temperatura Mínima:</strong> ${data.temperaturas.min}°C</p>`;
+            contenido.innerHTML += `<p><strong>Humedad:</strong> ${data.humedad}%</p>`;
+            contenido.innerHTML += `<p><strong>Probabilidad de lluvia:</strong> ${data.pronostico.hoy.prob_precipitacion}%</p>`;
+          })
+          .catch((error) => {
+            console.error("Error al obtener los datos:", error); // <-- Mostrar error en consola
+            contenido.innerHTML = `<p style="color: red;">Error al cargar los datos.</p>`;
+          });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

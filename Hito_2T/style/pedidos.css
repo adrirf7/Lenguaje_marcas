@@ -1,0 +1,29 @@
+.custom-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+table {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+th {
+  color: white;
+}
+th,
+td {
+  padding: 12px;
+  text-align: left;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(45deg, #ffffff, #e3f2fd);
+  margin: 0;
+  padding: 0;
+}
+.navbar-nav {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.navbar-brand {
+  margin-left: 20px;
+}

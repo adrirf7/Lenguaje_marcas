@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Factura - Pedido</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/pedidos.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">Mi Tienda</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="tablas_pedidos.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="factura_cliente.html">Factura</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="clientes.html">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vendidos_trimestres.html"
+              >Vendidos Por Trimestre</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-5" style="margin-bottom: 100px">
+      <h1 class="text-center mb-4">Factura de Compra</h1>
+
+      <!-- Información del cliente -->
+      <h3>Datos del Cliente</h3>
+      <p id="clienteNombre"></p>
+      <p id="clienteDireccion"></p>
+      <p id="clienteEmail"></p>
+      <p id="clienteTelefono"></p>
+
+      <!-- Información de los productos -->
+      <h3>Productos Comprados</h3>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Referencia</th>
+            <th>Nombre del Producto</th>
+            <th>Precio</th>
+            <th>Unidades</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="productosLista"></tbody>
+      </table>
+
+      <!-- Total facturado -->
+      <h3>Total Facturado: <span id="totalFactura"></span></h3>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+      <p class="mb-0">
+        &copy; 2025 Adrian Rodriguez Fernandez - Todos los derechos reservados
+      </p>
+    </footer>
+
+    <script>
+      async function cargarFactura() {
+        try {
+          // Cargar el archivo JSON
+          const respuesta = await fetch("pedidos.json");
+          if (!respuesta.ok) {
+            throw new Error(
+              `Error al cargar el archivo JSON: ${respuesta.statusText}`
+            );
+          }
+          const data = await respuesta.json();
+
+          // Supongamos que quieres la factura de un pedido específico, por ejemplo el pedido "2023Q1-001"
+          const numeroPedido = "2023Q1-001"; // Cambia esto si deseas un pedido diferente
+          const pedido = obtenerPedido(data, numeroPedido);
+
+          if (pedido) {
+            // Mostrar la información del cliente
+            mostrarCliente(pedido.cliente);
+
+            // Mostrar los productos comprados
+            mostrarProductos(pedido.productos);
+
+            // Mostrar el total facturado
+            mostrarTotal(pedido.total_factura);
+          } else {
+            alert("Pedido no encontrado");
+          }
+        } catch (error) {
+          console.error("Error al cargar los datos:", error);
+        }
+      }
+
+      // Función para obtener el pedido según el número de pedido
+      function obtenerPedido(data, numeroPedido) {
+        for (let trimestre in data["2023"]) {
+          const pedidos = data["2023"][trimestre];
+          const pedido = pedidos.find((p) => p.numero_pedido === numeroPedido);
+          if (pedido) return pedido;
+        }
+        return null;
+      }
+
+      // Función para mostrar la información del cliente
+      function mostrarCliente(cliente) {
+        document.getElementById(
+          "clienteNombre"
+        ).innerText = `Nombre: ${cliente.nombre} ${cliente.apellidos}`;
+        document.getElementById(
+          "clienteDireccion"
+        ).innerText = `Dirección: ${cliente.direccion.calle}, ${cliente.direccion.ciudad}, ${cliente.direccion.provincia}, ${cliente.direccion.codigo_postal}`;
+        document.getElementById(
+          "clienteEmail"
+        ).innerText = `Email: ${cliente.email}`;
+        document.getElementById(
+          "clienteTelefono"
+        ).innerText = `Teléfono: ${cliente.telefono}`;
+      }
+
+      // Función para mostrar los productos comprados
+      function mostrarProductos(productos) {
+        const tbody = document.getElementById("productosLista");
+        productos.forEach((producto) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${producto.referencia}</td>
+            <td>${producto.nombre_producto}</td>
+            <td>${producto.precio}€</td>
+            <td>${producto.unidades}</td>
+            <td>${(producto.precio * producto.unidades).toFixed(2)}€</td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+
+      // Función para mostrar el total facturado
+      function mostrarTotal(total) {
+        document.getElementById("totalFactura").innerText = `${total.toFixed(
+          2
+        )}€`;
+      }
+
+      // Llamar a la función para cargar los datos de la factura
+      cargarFactura();
+    </script>
+  </body>
+</html>

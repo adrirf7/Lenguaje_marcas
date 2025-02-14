@@ -1,0 +1,913 @@
+{
+    "2023": {
+      "Q1": [
+        {
+          "numero_pedido": "2023Q1-001",
+          "fecha_compra": "2023-01-10",
+          "fecha_entrega": "2023-01-15",
+          "total_factura": 95.75,
+          "cliente": {
+            "nombre": "Carlos",
+            "apellidos": "Ramírez López",
+            "telefono": "600123456",
+            "direccion": {
+              "calle": "Av. Principal 123",
+              "ciudad": "Madrid",
+              "codigo_postal": "28001",
+              "provincia": "Madrid"
+            },
+            "email": "carlos.ramirez@example.com"
+          },
+          "productos": [
+            {"nombre_producto": "Collar para perro", "referencia": "COL001", "precio": 15.99, "unidades": 2},
+            {"nombre_producto": "Comida para gato 2kg", "referencia": "COMG002", "precio": 25.99, "unidades": 3}
+          ]
+        },
+        {
+          "numero_pedido": "2023Q1-002",
+          "fecha_compra": "2023-01-20",
+          "fecha_entrega": "2023-01-25",
+          "total_factura": 120.00,
+          "cliente": {
+            "nombre": "María",
+            "apellidos": "Fernández Ruiz",
+            "telefono": "601234567",
+            "direccion": {
+              "calle": "Calle Mayor 45",
+              "ciudad": "Barcelona",
+              "codigo_postal": "08002",
+              "provincia": "Barcelona"
+            },
+            "email": "maria.fernandez@example.com"
+          },
+          "productos": [
+            {"nombre_producto": "Cama para perro", "referencia": "CAM003", "precio": 50.00, "unidades": 1},
+            {"nombre_producto": "Juguete para gato", "referencia": "JUG004", "precio": 9.99, "unidades": 2}
+          ]
+        },
+        {
+          "numero_pedido": "2023Q1-003",
+          "fecha_compra": "2023-02-05",
+          "fecha_entrega": "2023-02-10",
+          "total_factura": 65.00,
+          "cliente": {
+            "nombre": "Luis",
+            "apellidos": "Gómez Sánchez",
+            "telefono": "602111222",
+            "direccion": {
+              "calle": "Paseo del Prado 8",
+              "ciudad": "Madrid",
+              "codigo_postal": "28014",
+              "provincia": "Madrid"
+            },
+            "email": "luis.gomez@example.com"
+          },
+          "productos": [
+            {"nombre_producto": "Comedero para perro", "referencia": "COM009", "precio": 25.00, "unidades": 2},
+            {"nombre_producto": "Transportín para gato", "referencia": "TRA010", "precio": 40.00, "unidades": 1}
+          ]
+        },
+        {
+          "numero_pedido": "2023Q1-004",
+          "fecha_compra": "2023-03-01",
+          "fecha_entrega": "2023-03-05",
+          "total_factura": 70.00,
+          "cliente": {
+            "nombre": "Carlos",
+            "apellidos": "Ramírez López",
+            "telefono": "600123456",
+            "direccion": {
+              "calle": "Av. Principal 123",
+              "ciudad": "Madrid",
+              "codigo_postal": "28001",
+              "provincia": "Madrid"
+            },
+            "email": "carlos.ramirez@example.com"
+          },
+          "productos": [
+            {"nombre_producto": "Correa para perro", "referencia": "COR011", "precio": 20.00, "unidades": 2},
+            {"nombre_producto": "Pelota para perro", "referencia": "PEL012", "precio": 15.00, "unidades": 2}
+          ]
+        },
+        {
+          "numero_pedido": "2023Q1-005",
+          "fecha_compra": "2023-03-20",
+          "fecha_entrega": "2023-03-25",
+          "total_factura": 55.00,
+          "cliente": {
+            "nombre": "María",
+            "apellidos": "Fernández Ruiz",
+            "telefono": "601234567",
+            "direccion": {
+              "calle": "Calle Mayor 45",
+              "ciudad": "Barcelona",
+              "codigo_postal": "08002",
+              "provincia": "Barcelona"
+            },
+            "email": "maria.fernandez@example.com"
+          },
+          "productos": [
+            {"nombre_producto": "Rascador para gato", "referencia": "RAS013", "precio": 35.00, "unidades": 1},
+            {"nombre_producto": "Comida húmeda para gato", "referencia": "COM014", "precio": 10.00, "unidades": 2}
+          ]
+        }
+      ],
+      "Q2": [
+         {
+        "numero_pedido": "2023Q2-001",
+        "fecha_compra": "2023-04-05",
+        "fecha_entrega": "2023-04-10",
+        "total_factura": 85.50,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Juguete para perro", "referencia": "JUG015", "precio": 18.00, "unidades": 3},
+          {"nombre_producto": "Alimento seco para perro", "referencia": "ALMPD016", "precio": 49.50, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2023Q2-002",
+        "fecha_compra": "2023-04-10",
+        "fecha_entrega": "2023-04-15",
+        "total_factura": 130.00,
+        "cliente": {
+          "nombre": "María",
+          "apellidos": "Fernández Ruiz",
+          "telefono": "601234567",
+          "direccion": {
+            "calle": "Calle Mayor 45",
+            "ciudad": "Barcelona",
+            "codigo_postal": "08002",
+            "provincia": "Barcelona"
+          },
+          "email": "maria.fernandez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Cama ortopédica para perro", "referencia": "CAM017", "precio": 60.00, "unidades": 1},
+          {"nombre_producto": "Comida húmeda para gato", "referencia": "COM018", "precio": 20.00, "unidades": 3}
+        ]
+      },
+      {
+        "numero_pedido": "2023Q2-003",
+        "fecha_compra": "2023-04-12",
+        "fecha_entrega": "2023-04-17",
+        "total_factura": 95.00,
+        "cliente": {
+          "nombre": "Raúl",
+          "apellidos": "Pérez Gómez",
+          "telefono": "603456789",
+          "direccion": {
+            "calle": "Calle Secundaria 10",
+            "ciudad": "Sevilla",
+            "codigo_postal": "41001",
+            "provincia": "Sevilla"
+          },
+          "email": "raul.perez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Collar para perro", "referencia": "COL019", "precio": 25.00, "unidades": 3},
+          {"nombre_producto": "Cama para gato", "referencia": "CAM020", "precio": 45.00, "unidades": 1},
+          {"nombre_producto": "Transportín para perro", "referencia": "TRA021", "precio": 25.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2023Q2-004",
+        "fecha_compra": "2023-04-18",
+        "fecha_entrega": "2023-04-23",
+        "total_factura": 110.00,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Correa retráctil para perro", "referencia": "COR022", "precio": 35.00, "unidades": 2},
+          {"nombre_producto": "Bowl para perro", "referencia": "BOW023", "precio": 15.00, "unidades": 2}
+        ]
+      },
+      {
+        "numero_pedido": "2023Q2-005",
+        "fecha_compra": "2023-04-22",
+        "fecha_entrega": "2023-04-27",
+        "total_factura": 50.00,
+        "cliente": {
+          "nombre": "María",
+          "apellidos": "Fernández Ruiz",
+          "telefono": "601234567",
+          "direccion": {
+            "calle": "Calle Mayor 45",
+            "ciudad": "Barcelona",
+            "codigo_postal": "08002",
+            "provincia": "Barcelona"
+          },
+          "email": "maria.fernandez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Rascador para gato", "referencia": "RAS024", "precio": 20.00, "unidades": 1},
+          {"nombre_producto": "Alimento para gato", "referencia": "ALMG025", "precio": 30.00, "unidades": 1}
+        ]
+      }
+      ],
+      "Q3": [
+        {
+            "numero_pedido": "2023Q3-001",
+            "fecha_compra": "2023-07-01",
+            "fecha_entrega": "2023-07-06",
+            "total_factura": 115.00,
+            "cliente": {
+              "nombre": "Carlos",
+              "apellidos": "Ramírez López",
+              "telefono": "600123456",
+              "direccion": {
+                "calle": "Av. Principal 123",
+                "ciudad": "Madrid",
+                "codigo_postal": "28001",
+                "provincia": "Madrid"
+              },
+              "email": "carlos.ramirez@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Alimento seco para perro", "referencia": "ALMPD037", "precio": 50.00, "unidades": 1},
+              {"nombre_producto": "Correa para perro", "referencia": "COR038", "precio": 30.00, "unidades": 2},
+              {"nombre_producto": "Comedero para perro", "referencia": "COM039", "precio": 35.00, "unidades": 1}
+            ]
+          },
+          {
+            "numero_pedido": "2023Q3-002",
+            "fecha_compra": "2023-07-10",
+            "fecha_entrega": "2023-07-15",
+            "total_factura": 100.00,
+            "cliente": {
+              "nombre": "María",
+              "apellidos": "Fernández Ruiz",
+              "telefono": "601234567",
+              "direccion": {
+                "calle": "Calle Mayor 45",
+                "ciudad": "Barcelona",
+                "codigo_postal": "08002",
+                "provincia": "Barcelona"
+              },
+              "email": "maria.fernandez@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Cama ortopédica para perro", "referencia": "CAM040", "precio": 60.00, "unidades": 1},
+              {"nombre_producto": "Transportín para gato", "referencia": "TRA041", "precio": 40.00, "unidades": 1}
+            ]
+          },
+          {
+            "numero_pedido": "2023Q3-003",
+            "fecha_compra": "2023-07-12",
+            "fecha_entrega": "2023-07-17",
+            "total_factura": 120.00,
+            "cliente": {
+              "nombre": "Roberto",
+              "apellidos": "Gutiérrez Martín",
+              "telefono": "602345678",
+              "direccion": {
+                "calle": "Calle del Río 3",
+                "ciudad": "Vigo",
+                "codigo_postal": "36201",
+                "provincia": "Pontevedra"
+              },
+              "email": "roberto.gutierrez@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Jaula para conejos", "referencia": "JAU042", "precio": 45.00, "unidades": 2},
+              {"nombre_producto": "Alimento para roedores", "referencia": "ALMR043", "precio": 35.00, "unidades": 1},
+              {"nombre_producto": "Juguete para perro", "referencia": "JUG044", "precio": 40.00, "unidades": 1}
+            ]
+          },
+          {
+            "numero_pedido": "2023Q3-004",
+            "fecha_compra": "2023-08-05",
+            "fecha_entrega": "2023-08-10",
+            "total_factura": 95.00,
+            "cliente": {
+              "nombre": "Carlos",
+              "apellidos": "Ramírez López",
+              "telefono": "600123456",
+              "direccion": {
+                "calle": "Av. Principal 123",
+                "ciudad": "Madrid",
+                "codigo_postal": "28001",
+                "provincia": "Madrid"
+              },
+              "email": "carlos.ramirez@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Comida húmeda para perro", "referencia": "COM045", "precio": 30.00, "unidades": 2},
+              {"nombre_producto": "Transportín para gato", "referencia": "TRA046", "precio": 65.00, "unidades": 1}
+            ]
+          },
+          {
+            "numero_pedido": "2023Q3-005",
+            "fecha_compra": "2023-08-15",
+            "fecha_entrega": "2023-08-20",
+            "total_factura": 105.00,
+            "cliente": {
+              "nombre": "María",
+              "apellidos": "Fernández Ruiz",
+              "telefono": "601234567",
+              "direccion": {
+                "calle": "Calle Mayor 45",
+                "ciudad": "Barcelona",
+                "codigo_postal": "08002",
+                "provincia": "Barcelona"
+              },
+              "email": "maria.fernandez@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Cama para perro", "referencia": "CAM047", "precio": 50.00, "unidades": 1},
+              {"nombre_producto": "Juguete para gato", "referencia": "JUG048", "precio": 15.00, "unidades": 2},
+              {"nombre_producto": "Alimento seco para gato", "referencia": "ALMG049", "precio": 40.00, "unidades": 1}
+            ]
+          }
+      ],
+      "Q4": [{
+        "numero_pedido": "2023Q4-001",
+        "fecha_compra": "2023-10-01",
+        "fecha_entrega": "2023-10-05",
+        "total_factura": 130.00,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Alimento para perro", "referencia": "ALMPD050", "precio": 50.00, "unidades": 1},
+          {"nombre_producto": "Cama para perro", "referencia": "CAM051", "precio": 80.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2023Q4-002",
+        "fecha_compra": "2023-10-10",
+        "fecha_entrega": "2023-10-15",
+        "total_factura": 125.00,
+        "cliente": {
+          "nombre": "María",
+          "apellidos": "Fernández Ruiz",
+          "telefono": "601234567",
+          "direccion": {
+            "calle": "Calle Mayor 45",
+            "ciudad": "Barcelona",
+            "codigo_postal": "08002",
+            "provincia": "Barcelona"
+          },
+          "email": "maria.fernandez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Comida húmeda para gato", "referencia": "COM052", "precio": 25.00, "unidades": 3},
+          {"nombre_producto": "Juguete para perro", "referencia": "JUG053", "precio": 30.00, "unidades": 2},
+          {"nombre_producto": "Collar para perro", "referencia": "COL054", "precio": 70.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2023Q4-003",
+        "fecha_compra": "2023-10-15",
+        "fecha_entrega": "2023-10-20",
+        "total_factura": 110.00,
+        "cliente": {
+          "nombre": "Pedro",
+          "apellidos": "Martín García",
+          "telefono": "609876543",
+          "direccion": {
+            "calle": "Calle de la Paz 20",
+            "ciudad": "Granada",
+            "codigo_postal": "18001",
+            "provincia": "Granada"
+          },
+          "email": "pedro.martin@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Correa para perro", "referencia": "COR055", "precio": 30.00, "unidades": 2},
+          {"nombre_producto": "Cama para gato", "referencia": "CAM056", "precio": 40.00, "unidades": 1},
+          {"nombre_producto": "Transportín para perro", "referencia": "TRA057", "precio": 40.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2023Q4-004",
+        "fecha_compra": "2023-11-01",
+        "fecha_entrega": "2023-11-05",
+        "total_factura": 90.00,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Rascador para gato", "referencia": "RAS058", "precio": 45.00, "unidades": 2},
+          {"nombre_producto": "Pelota para perro", "referencia": "PEL059", "precio": 15.00, "unidades": 3}
+        ]
+      },
+      {
+        "numero_pedido": "2023Q4-005",
+        "fecha_compra": "2023-11-10",
+        "fecha_entrega": "2023-11-15",
+        "total_factura": 100.00,
+        "cliente": {
+          "nombre": "María",
+          "apellidos": "Fernández Ruiz",
+          "telefono": "601234567",
+          "direccion": {
+            "calle": "Calle Mayor 45",
+            "ciudad": "Barcelona",
+            "codigo_postal": "08002",
+            "provincia": "Barcelona"
+          },
+          "email": "maria.fernandez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Alimento seco para perro", "referencia": "ALMPD060", "precio": 50.00, "unidades": 1},
+          {"nombre_producto": "Cama ortopédica para gato", "referencia": "CAM061", "precio": 50.00, "unidades": 1}
+        ]
+      }]
+    },
+    "2024": {
+      "Q1": [{
+        "numero_pedido": "2024Q1-001",
+        "fecha_compra": "2024-01-05",
+        "fecha_entrega": "2024-01-10",
+        "total_factura": 110.00,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Correa para perro", "referencia": "COR062", "precio": 20.00, "unidades": 2},
+          {"nombre_producto": "Comedero para gato", "referencia": "COM063", "precio": 30.00, "unidades": 1},
+          {"nombre_producto": "Pelota para perro", "referencia": "PEL064", "precio": 15.00, "unidades": 2}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q1-002",
+        "fecha_compra": "2024-01-15",
+        "fecha_entrega": "2024-01-20",
+        "total_factura": 135.00,
+        "cliente": {
+          "nombre": "María",
+          "apellidos": "Fernández Ruiz",
+          "telefono": "601234567",
+          "direccion": {
+            "calle": "Calle Mayor 45",
+            "ciudad": "Barcelona",
+            "codigo_postal": "08002",
+            "provincia": "Barcelona"
+          },
+          "email": "maria.fernandez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Cama ortopédica para perro", "referencia": "CAM065", "precio": 80.00, "unidades": 1},
+          {"nombre_producto": "Alimento húmedo para gato", "referencia": "COM066", "precio": 55.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q1-003",
+        "fecha_compra": "2024-01-18",
+        "fecha_entrega": "2024-01-23",
+        "total_factura": 120.00,
+        "cliente": {
+          "nombre": "Laura",
+          "apellidos": "Pérez Gómez",
+          "telefono": "609876543",
+          "direccion": {
+            "calle": "Calle del Sol 10",
+            "ciudad": "Sevilla",
+            "codigo_postal": "41001",
+            "provincia": "Sevilla"
+          },
+          "email": "laura.perez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Comida seca para perro", "referencia": "ALMPD067", "precio": 50.00, "unidades": 1},
+          {"nombre_producto": "Transportín para gato", "referencia": "TRA068", "precio": 40.00, "unidades": 1},
+          {"nombre_producto": "Alimento para roedores", "referencia": "ALMR069", "precio": 30.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q1-004",
+        "fecha_compra": "2024-01-25",
+        "fecha_entrega": "2024-01-30",
+        "total_factura": 75.00,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Juguete para perro", "referencia": "JUG070", "precio": 25.00, "unidades": 2},
+          {"nombre_producto": "Rascador para gato", "referencia": "RAS071", "precio": 50.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q1-005",
+        "fecha_compra": "2024-02-05",
+        "fecha_entrega": "2024-02-10",
+        "total_factura": 90.00,
+        "cliente": {
+          "nombre": "María",
+          "apellidos": "Fernández Ruiz",
+          "telefono": "601234567",
+          "direccion": {
+            "calle": "Calle Mayor 45",
+            "ciudad": "Barcelona",
+            "codigo_postal": "08002",
+            "provincia": "Barcelona"
+          },
+          "email": "maria.fernandez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Cama para perro", "referencia": "CAM072", "precio": 60.00, "unidades": 1},
+          {"nombre_producto": "Transportín para perro", "referencia": "TRA073", "precio": 30.00, "unidades": 1}
+        ]
+      }],
+      "Q2": [ {
+        "numero_pedido": "2024Q2-001",
+        "fecha_compra": "2024-04-01",
+        "fecha_entrega": "2024-04-05",
+        "total_factura": 115.00,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Collar para perro", "referencia": "COL074", "precio": 25.00, "unidades": 2},
+          {"nombre_producto": "Alimento seco para perro", "referencia": "ALMPD075", "precio": 50.00, "unidades": 1},
+          {"nombre_producto": "Rascador para gato", "referencia": "RAS076", "precio": 40.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q2-002",
+        "fecha_compra": "2024-04-10",
+        "fecha_entrega": "2024-04-15",
+        "total_factura": 100.00,
+        "cliente": {
+          "nombre": "María",
+          "apellidos": "Fernández Ruiz",
+          "telefono": "601234567",
+          "direccion": {
+            "calle": "Calle Mayor 45",
+            "ciudad": "Barcelona",
+            "codigo_postal": "08002",
+            "provincia": "Barcelona"
+          },
+          "email": "maria.fernandez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Cama ortopédica para perro", "referencia": "CAM077", "precio": 70.00, "unidades": 1},
+          {"nombre_producto": "Juguete para perro", "referencia": "JUG078", "precio": 30.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q2-003",
+        "fecha_compra": "2024-04-20",
+        "fecha_entrega": "2024-04-25",
+        "total_factura": 120.00,
+        "cliente": {
+          "nombre": "Pedro",
+          "apellidos": "Martín García",
+          "telefono": "609876543",
+          "direccion": {
+            "calle": "Calle de la Paz 20",
+            "ciudad": "Granada",
+            "codigo_postal": "18001",
+            "provincia": "Granada"
+          },
+          "email": "pedro.martin@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Transportín para perro", "referencia": "TRA079", "precio": 40.00, "unidades": 1},
+          {"nombre_producto": "Cama para gato", "referencia": "CAM080", "precio": 30.00, "unidades": 1},
+          {"nombre_producto": "Alimento para roedores", "referencia": "ALMR081", "precio": 50.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q2-004",
+        "fecha_compra": "2024-05-05",
+        "fecha_entrega": "2024-05-10",
+        "total_factura": 95.00,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Correa para perro", "referencia": "COR082", "precio": 20.00, "unidades": 1},
+          {"nombre_producto": "Comida para gato 2kg", "referencia": "COMG083", "precio": 30.00, "unidades": 2},
+          {"nombre_producto": "Juguete para perro", "referencia": "JUG084", "precio": 25.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q2-005",
+        "fecha_compra": "2024-05-15",
+        "fecha_entrega": "2024-05-20",
+        "total_factura": 110.00,
+        "cliente": {
+          "nombre": "María",
+          "apellidos": "Fernández Ruiz",
+          "telefono": "601234567",
+          "direccion": {
+            "calle": "Calle Mayor 45",
+            "ciudad": "Barcelona",
+            "codigo_postal": "08002",
+            "provincia": "Barcelona"
+          },
+          "email": "maria.fernandez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Rascador para gato", "referencia": "RAS085", "precio": 60.00, "unidades": 1},
+          {"nombre_producto": "Transportín para perro", "referencia": "TRA086", "precio": 50.00, "unidades": 1}
+        ]
+      }],
+      "Q3": [ {
+        "numero_pedido": "2024Q3-001",
+        "fecha_compra": "2024-07-10",
+        "fecha_entrega": "2024-07-15",
+        "total_factura": 130.00,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Correa para perro", "referencia": "COR087", "precio": 25.00, "unidades": 2},
+          {"nombre_producto": "Alimento seco para perro", "referencia": "ALMPD088", "precio": 50.00, "unidades": 1},
+          {"nombre_producto": "Comedero para gato", "referencia": "COM089", "precio": 25.00, "unidades": 2},
+          {"nombre_producto": "Juguete para perro", "referencia": "JUG090", "precio": 30.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q3-002",
+        "fecha_compra": "2024-07-15",
+        "fecha_entrega": "2024-07-20",
+        "total_factura": 150.00,
+        "cliente": {
+          "nombre": "María",
+          "apellidos": "Fernández Ruiz",
+          "telefono": "601234567",
+          "direccion": {
+            "calle": "Calle Mayor 45",
+            "ciudad": "Barcelona",
+            "codigo_postal": "08002",
+            "provincia": "Barcelona"
+          },
+          "email": "maria.fernandez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Cama ortopédica para perro", "referencia": "CAM091", "precio": 80.00, "unidades": 1},
+          {"nombre_producto": "Transportín para gato", "referencia": "TRA092", "precio": 40.00, "unidades": 1},
+          {"nombre_producto": "Alimento seco para perro", "referencia": "ALMPD093", "precio": 30.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q3-003",
+        "fecha_compra": "2024-08-05",
+        "fecha_entrega": "2024-08-10",
+        "total_factura": 100.00,
+        "cliente": {
+          "nombre": "Laura",
+          "apellidos": "Pérez Gómez",
+          "telefono": "609876543",
+          "direccion": {
+            "calle": "Calle del Sol 10",
+            "ciudad": "Sevilla",
+            "codigo_postal": "41001",
+            "provincia": "Sevilla"
+          },
+          "email": "laura.perez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Rascador para gato", "referencia": "RAS094", "precio": 50.00, "unidades": 1},
+          {"nombre_producto": "Transportín para perro", "referencia": "TRA095", "precio": 50.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q3-004",
+        "fecha_compra": "2024-08-20",
+        "fecha_entrega": "2024-08-25",
+        "total_factura": 110.00,
+        "cliente": {
+          "nombre": "Pedro",
+          "apellidos": "Martín García",
+          "telefono": "609876543",
+          "direccion": {
+            "calle": "Calle de la Paz 20",
+            "ciudad": "Granada",
+            "codigo_postal": "18001",
+            "provincia": "Granada"
+          },
+          "email": "pedro.martin@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Comida para perro", "referencia": "COM096", "precio": 30.00, "unidades": 2},
+          {"nombre_producto": "Cama para perro", "referencia": "CAM097", "precio": 40.00, "unidades": 1},
+          {"nombre_producto": "Rascador para gato", "referencia": "RAS098", "precio": 40.00, "unidades": 1}
+        ]
+      },
+      {
+        "numero_pedido": "2024Q3-005",
+        "fecha_compra": "2024-09-01",
+        "fecha_entrega": "2024-09-05",
+        "total_factura": 85.00,
+        "cliente": {
+          "nombre": "Carlos",
+          "apellidos": "Ramírez López",
+          "telefono": "600123456",
+          "direccion": {
+            "calle": "Av. Principal 123",
+            "ciudad": "Madrid",
+            "codigo_postal": "28001",
+            "provincia": "Madrid"
+          },
+          "email": "carlos.ramirez@example.com"
+        },
+        "productos": [
+          {"nombre_producto": "Comida seca para perro", "referencia": "ALMPD099", "precio": 40.00, "unidades": 1},
+          {"nombre_producto": "Comida para gato 2kg", "referencia": "COMG100", "precio": 45.00, "unidades": 1}
+        ]
+      }],
+      "Q4": [
+        {
+            "numero_pedido": "2024Q4-001",
+            "fecha_compra": "2024-10-05",
+            "fecha_entrega": "2024-10-10",
+            "total_factura": 125.00,
+            "cliente": {
+              "nombre": "María",
+              "apellidos": "Fernández Ruiz",
+              "telefono": "601234567",
+              "direccion": {
+                "calle": "Calle Mayor 45",
+                "ciudad": "Barcelona",
+                "codigo_postal": "08002",
+                "provincia": "Barcelona"
+              },
+              "email": "maria.fernandez@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Cama ortopédica para perro", "referencia": "CAM101", "precio": 80.00, "unidades": 1},
+              {"nombre_producto": "Juguete para gato", "referencia": "JUG102", "precio": 25.00, "unidades": 2},
+              {"nombre_producto": "Rascador para gato", "referencia": "RAS103", "precio": 20.00, "unidades": 1}
+            ]
+          },
+          {
+            "numero_pedido": "2024Q4-002",
+            "fecha_compra": "2024-10-12",
+            "fecha_entrega": "2024-10-17",
+            "total_factura": 115.00,
+            "cliente": {
+              "nombre": "Carlos",
+              "apellidos": "Ramírez López",
+              "telefono": "600123456",
+              "direccion": {
+                "calle": "Av. Principal 123",
+                "ciudad": "Madrid",
+                "codigo_postal": "28001",
+                "provincia": "Madrid"
+              },
+              "email": "carlos.ramirez@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Transportín para perro", "referencia": "TRA104", "precio": 50.00, "unidades": 1},
+              {"nombre_producto": "Comida para gato", "referencia": "COM105", "precio": 35.00, "unidades": 1},
+              {"nombre_producto": "Rascador para gato", "referencia": "RAS106", "precio": 30.00, "unidades": 1}
+            ]
+          },
+          {
+            "numero_pedido": "2024Q4-003",
+            "fecha_compra": "2024-11-05",
+            "fecha_entrega": "2024-11-10",
+            "total_factura": 100.00,
+            "cliente": {
+              "nombre": "Pedro",
+              "apellidos": "Martín García",
+              "telefono": "609876543",
+              "direccion": {
+                "calle": "Calle de la Paz 20",
+                "ciudad": "Granada",
+                "codigo_postal": "18001",
+                "provincia": "Granada"
+              },
+              "email": "pedro.martin@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Correa para perro", "referencia": "COR107", "precio": 20.00, "unidades": 2},
+              {"nombre_producto": "Pelota para perro", "referencia": "PEL108", "precio": 15.00, "unidades": 2},
+              {"nombre_producto": "Comida seca para perro", "referencia": "ALMPD109", "precio": 30.00, "unidades": 1}
+            ]
+          },
+          {
+            "numero_pedido": "2024Q4-004",
+            "fecha_compra": "2024-11-15",
+            "fecha_entrega": "2024-11-20",
+            "total_factura": 140.00,
+            "cliente": {
+              "nombre": "Carlos",
+              "apellidos": "Ramírez López",
+              "telefono": "600123456",
+              "direccion": {
+                "calle": "Av. Principal 123",
+                "ciudad": "Madrid",
+                "codigo_postal": "28001",
+                "provincia": "Madrid"
+              },
+              "email": "carlos.ramirez@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Comedero para perro", "referencia": "COM110", "precio": 30.00, "unidades": 1},
+              {"nombre_producto": "Rascador para gato", "referencia": "RAS111", "precio": 50.00, "unidades": 1},
+              {"nombre_producto": "Alimento húmedo para gato", "referencia": "COM112", "precio": 60.00, "unidades": 1}
+            ]
+          },
+          {
+            "numero_pedido": "2024Q4-005",
+            "fecha_compra": "2024-12-05",
+            "fecha_entrega": "2024-12-10",
+            "total_factura": 105.00,
+            "cliente": {
+              "nombre": "María",
+              "apellidos": "Fernández Ruiz",
+              "telefono": "601234567",
+              "direccion": {
+                "calle": "Calle Mayor 45",
+                "ciudad": "Barcelona",
+                "codigo_postal": "08002",
+                "provincia": "Barcelona"
+              },
+              "email": "maria.fernandez@example.com"
+            },
+            "productos": [
+              {"nombre_producto": "Cama para perro", "referencia": "CAM113", "precio": 70.00, "unidades": 1},
+              {"nombre_producto": "Transportín para gato", "referencia": "TRA114", "precio": 35.00, "unidades": 1}
+            ]
+          }
+      ]
+    }
+  }

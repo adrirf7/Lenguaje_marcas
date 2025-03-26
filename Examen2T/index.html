@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla de Móviles</title>
+    <style>
+      body {
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Tabla de Móviles</h2>
+
+    <table id="tablaMoviles">
+      <thead>
+        <tr>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Los datos se insertarán aquí -->
+      </tbody>
+    </table>
+
+    <script>
+      // Función para cargar los datos desde el archivo JSON
+      function cargarDatos() {
+        fetch("jsonExamen.json") // Aquí se hace la petición al archivo data.json
+          .then((response) => response.json())
+          .then((data) => {
+            generarTabla(data.moviles); // Pasamos los datos de móviles a la función para crear la tabla
+          })
+          .catch((error) =>
+            console.error("Error al cargar el archivo JSON:", error)
+          );
+      }
+
+      // Función para generar las filas de la tabla
+      function generarTabla(moviles) {
+        const tabla = document
+          .getElementById("tablaMoviles")
+          .getElementsByTagName("tbody")[0];
+
+        moviles.forEach((movil) => {
+          const fila = document.createElement("tr");
+
+          const celdaMarca = document.createElement("td");
+          celdaMarca.textContent = movil.marca;
+          fila.appendChild(celdaMarca);
+
+          const celdaModelo = document.createElement("td");
+          celdaModelo.textContent = movil.modelo;
+          fila.appendChild(celdaModelo);
+
+          const celdaPrecio = document.createElement("td");
+          celdaPrecio.textContent = `${movil.precio} €`;
+          fila.appendChild(celdaPrecio);
+
+          tabla.appendChild(fila);
+        });
+      }
+
+      cargarDatos();
+    </script>
+  </body>
+</html>

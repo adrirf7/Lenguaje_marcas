@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notas</title>
+  </head>
+  <body>
+    <script>
+      let nombre = prompt("Ingresa tu nombre:");
+      console.log("Bienvenido, " + nombre);
+
+      let nota1 = parseInt(prompt("Ingresa tu nota:"));
+      let nota2 = parseInt(prompt("Ingresa tu nota:"));
+      let nota3 = parseInt(prompt("Ingresa tu nota:"));
+
+      let media = (nota1 + nota2 + nota3) / 3;
+      if (media < 5) {
+        console.log("Estas suspenso");
+      } else if (media < 7) {
+        console.log("Estas Aprobado");
+      } else if (media < 9) {
+        console.log("Tienes un sobresaliente");
+      }
+    </script>
+  </body>
+</html>

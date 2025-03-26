@@ -1,0 +1,24 @@
+{
+    "moviles": [
+      {
+        "marca": "Apple",
+        "modelo": "iPhone 16 Pro Max",
+        "precio": 1399.99
+      },
+      {
+        "marca": "Samsung",
+        "modelo": "Galaxy S25 Ultra",
+        "precio": 1149.99
+      },
+      {
+        "marca": "Google",
+        "modelo": "Pixel 7",
+        "precio": 599.99
+      },
+      {
+        "marca": "Xiaomi",
+        "modelo": "Redmi Note 13",
+        "precio": 499.99
+      }
+    ]
+  }

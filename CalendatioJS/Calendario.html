@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Horario de Clase</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="Tabla">
+      <tr>
+        <th>Hora</th>
+        <th>Lunes</th>
+        <th>Martes</th>
+        <th>Miercoles</th>
+        <th>Jueves</th>
+        <th>Viernes</th>
+      </tr>
+      <tr>
+        <td>9:00-10:00</td>
+        <td id="lunes-9"></td>
+        <td id="martes-9"></td>
+        <td id="miercoles-9"></td>
+        <td id="jueves-9"></td>
+        <td id="viernes-9"></td>
+      </tr>
+      <tr>
+        <td>10:00-11:00</td>
+        <td id="lunes-10"></td>
+        <td id="martes-10"></td>
+        <td id="miercoles-10"></td>
+        <td id="jueves-10"></td>
+        <td id="viernes-10"></td>
+      </tr>
+      <tr>
+        <td>11:00-11:50</td>
+        <td id="lunes-11"></td>
+        <td id="martes-11"></td>
+        <td id="miercoles-11"></td>
+        <td id="jueves-11"></td>
+        <td id="viernes-11"></td>
+      </tr>
+      <tr>
+        <td>11:50-12:10</td>
+        <td colspan="5">Recreo</td>
+      </tr>
+      <tr>
+        <td>12:10-13:00</td>
+        <td id="lunes-12"></td>
+        <td id="martes-12"></td>
+        <td id="miercoles-12"></td>
+        <td id="jueves-12"></td>
+        <td id="viernes-12"></td>
+      </tr>
+      <tr>
+        <td>13:00-14:00</td>
+        <td id="lunes-13"></td>
+        <td id="martes-13"></td>
+        <td id="miercoles-13"></td>
+        <td id="jueves-13"></td>
+        <td id="viernes-13"></td>
+      </tr>
+      <tr>
+        <td>14:00-15:00</td>
+        <td id="lunes-14"></td>
+        <td id="martes-14"></td>
+        <td id="miercoles-14"></td>
+        <td id="jueves-14"></td>
+        <td id="viernes-14"></td>
+      </tr>
+    </table>
+
+    <script>
+      // Días de la semana
+      var dias = ["lunes", "martes", "miercoles", "jueves", "viernes"];
+
+      // Horas del día
+      var horas = [
+        "9:00-10:00",
+        "10:00-11:00",
+        "11:00-11:50",
+        "12:10-13:00",
+        "13:00-14:00",
+        "14:00-15:00",
+      ];
+
+      // Recorremos cada hora
+      for (var i = 0; i < horas.length; i++) {
+        // Recorremos cada día de la semana
+        for (var j = 0; j < dias.length; j++) {
+          // Pedimos el nombre de la asignatura
+          var asignatura = prompt(
+            "Introduce el nombre de la asignatura para el horario de " +
+              horas[i] +
+              " del " +
+              dias[j]
+          );
+
+          // Pedimos el color para la celda
+          var color = prompt("Introduce el color para la celda");
+
+          // Accedemos a la celda correspondiente usando el id
+          var celda = document.getElementById(dias[j] + "-" + (i + 9));
+
+          // Insertamos la información en la celda
+          celda.innerHTML = asignatura;
+          celda.style.backgroundColor = color;
+        }
+      }
+    </script>
+  </body>
+</html>

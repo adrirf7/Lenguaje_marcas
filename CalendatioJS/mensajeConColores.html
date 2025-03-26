@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Saludo y Fecha</title>
+    <style>
+      .lunes {
+        color: red;
+      }
+      .martes {
+        color: blue;
+      }
+      .miercoles {
+        color: green;
+      }
+      .jueves {
+        color: pink;
+      }
+      .viernes {
+        font-style: italic;
+      }
+      .fin-de-semana {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="saludo"></h1>
+    <p id="fecha"></p>
+    <img id="imagen" src="" alt="Imagen del día" width="300" />
+
+    <script>
+      // Obtener la fecha actual
+      const fechaActual = new Date();
+      const dia = fechaActual.getDay(); // 0-6, donde 0 es domingo, 1 es lunes, etc.
+      const diaSemana = [
+        "domingo",
+        "lunes",
+        "martes",
+        "miércoles",
+        "jueves",
+        "viernes",
+        "sábado",
+      ];
+      const mes = fechaActual.getMonth() + 1; // El mes es 0-11, por lo que le sumamos 1
+      const año = fechaActual.getFullYear();
+      const hora = fechaActual.getHours();
+      const minutos = fechaActual.getMinutes();
+      const segundos = fechaActual.getSeconds();
+
+      // Pedir nombre
+      const nombre = prompt("¿Cuál es tu nombre?");
+
+      // Crear el saludo
+      let saludo = `Hola, ${nombre}. Hoy es ${
+        diaSemana[dia]
+      }, ${diaActual()} de ${mes} de ${año}. La hora es ${hora}:${minutos}:${segundos}`;
+
+      // Mostrar el saludo y la fecha
+      document.getElementById("saludo").innerText = saludo;
+
+      // Mostrar la fecha
+      document.getElementById("fecha").innerText = `Fecha: ${
+        diaSemana[dia]
+      }, ${diaActual()} de ${mes} de ${año}`;
+
+      // Cambiar estilo y imagen dependiendo del día de la semana
+      let estilo = "";
+      let imagenSrc = "";
+
+      switch (dia) {
+        case 1: // Lunes
+          estilo = "lunes";
+          imagenSrc =
+            "https://via.placeholder.com/300/FF0000/FFFFFF?text=Lunes";
+          break;
+        case 2: // Martes
+          estilo = "martes";
+          imagenSrc =
+            "https://via.placeholder.com/300/0000FF/FFFFFF?text=Martes";
+          break;
+        case 3: // Miércoles
+          estilo = "miercoles";
+          imagenSrc =
+            "https://via.placeholder.com/300/008000/FFFFFF?text=Miércoles";
+          break;
+        case 4: // Jueves
+          estilo = "jueves";
+          imagenSrc =
+            "https://via.placeholder.com/300/FFC0CB/FFFFFF?text=Jueves";
+          break;
+        case 5: // Viernes
+          estilo = "viernes";
+          imagenSrc =
+            "https://via.placeholder.com/300/FFFF00/FFFFFF?text=Viernes";
+          break;
+        case 6: // Sábado
+        case 0: // Domingo
+          estilo = "fin-de-semana";
+          imagenSrc =
+            "https://via.placeholder.com/300/000000/FFFFFF?text=Fin+de+Semana";
+          break;
+      }
+
+      // Aplicar estilo al saludo
+      document.getElementById("saludo").classList.add(estilo);
+
+      // Cambiar la imagen
+      document.getElementById("imagen").src = imagenSrc;
+
+      // Función para formatear la fecha
+      function diaActual() {
+        return fechaActual.getDate();
+      }
+    </script>
+  </body>
+</html>

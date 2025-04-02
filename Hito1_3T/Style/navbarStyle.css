@@ -1,0 +1,26 @@
+.navbar {
+  background: linear-gradient(135deg, #1e5799 0%, #2989d8 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+  margin: 0 5px;
+  transition: all 0.3s;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: white !important;
+  transform: translateY(-2px);
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700; /* Usa el peso que seleccionaste */
+}

@@ -22,7 +22,7 @@
         <!-- Logo + Nombre -->
         <a class="navbar-brand d-flex align-items-center" href="#">
           <i class="bi bi-cloud-sun-fill me-2" style="font-size: 1.5rem"></i>
-          ClimaMadrid
+          ClimaToledo
         </a>
 
         <!-- Botón móvil -->
@@ -39,12 +39,12 @@
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="#"
+              <a class="nav-link active" href="./index.html"
                 ><i class="bi bi-house-door me-1"></i> Inicio</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="./Tiempo.html"
                 ><i class="bi bi-cloud-sun me-1"></i> Tiempo</a
               >
             </li>
@@ -52,7 +52,61 @@
         </div>
       </div>
     </nav>
+    <div class="container mt-5">
+      <h1>Información Meteorológica de Getafe</h1>
+      <!-- Contenedor donde se mostrará la información -->
+      <div id="infoClima">
+        <p>Cargando...</p>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer mt-auto py-3 bg-dark text-white">
+  <div class="container text-center">
+    <span
+      >&copy; 2025 Adrian Rodriguez Fernandez - Todos los derechos
+      reservados</span
+    >
+  </div>
+</footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const API_URL =
+      "https://www.el-tiempo.net/api/json/v2/provincias/45/municipios/45168";
+    const contenido = document.getElementById("infoClima");
 
+    fetch(API_URL)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Error HTTP: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Respuesta de la API:", data); // <-- Debugging en consola
+        contenido.innerHTML = ""; // Limpiar "Cargando..."
+
+        // Verificar si hay datos antes de mostrarlos
+        if (!data.municipio || !data.temperaturas) {
+          contenido.innerHTML = "<p>No hay datos disponibles.</p>";
+          return;
+        }
+
+        contenido.innerHTML += `<p><strong>Municipio:</strong> ${data.municipio.NOMBRE}</p>`;
+        contenido.innerHTML += `<p><strong>Provincia:</strong> ${data.municipio.NOMBRE_PROVINCIA}</p>`;
+        contenido.innerHTML += `<p><strong>Temperatura Actual:</strong> ${data.temperatura_actual}ºC  </p>`;
+        contenido.innerHTML += `<p><strong>Temperatura Máxima:</strong> ${data.temperaturas.max}°C</p>`;
+        contenido.innerHTML += `<p><strong>Temperatura Mínima:</strong> ${data.temperaturas.min}°C</p>`;
+        contenido.innerHTML += `<p><strong>Humedad:</strong> ${data.humedad}%</p>`;
+        contenido.innerHTML += `<p><strong>Probabilidad de lluvia:</strong> ${data.pronostico.hoy.prob_precipitacion}%</p>`;
+      })
+      .catch((error) => {
+        console.error("Error al obtener los datos:", error); // <-- Mostrar error en consola
+        contenido.innerHTML = `<p style="color: red;">Error al cargar los datos.</p>`;
+      });
+  });
+</script>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

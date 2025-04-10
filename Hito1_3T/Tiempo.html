@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./Style/navbarStyle.css" />
+    <link rel="stylesheet" href="./Style/hitoStyle.css" />
     <title>Inicio</title>
   </head>
   <body>
@@ -53,60 +53,104 @@
       </div>
     </nav>
     <div class="container mt-5">
-      <h1>Información Meteorológica de Getafe</h1>
-      <!-- Contenedor donde se mostrará la información -->
-      <div id="infoClima">
-        <p>Cargando...</p>
+      <div class="weather-card" style="margin-bottom: 100px">
+        <h1 style="text-align: center">Información Meteorológica</h1>
+        <form id="dataSelectionForm" class="mb-4">
+          <div class="form-group">
+            <label for="indexSelect" class="form-label"
+              >Selecciona un municipio:</label
+            >
+            <select class="form-select" id="indexSelect">
+              <option value="">Selecciona un municipio</option>
+            </select>
+          </div>
+        </form>
+        <div class="table-responsive">
+          <table id="weather-table" class="table table-hover">
+            <thead>
+              <tr>
+                <th>Ciudad</th>
+                <th>Provincia</th>
+                <th>Descripción del Clima</th>
+                <th>Temp. Máx (°C)</th>
+                <th>Temp. Mín (°C)</th>
+                <th>Prob. de lluvia</th>
+                <th>Humedad</th>
+              </tr>
+            </thead>
+            <tbody id="weather-data">
+              <tr>
+                <td colspan="7" class="text-center text-muted">
+                  Selecciona un municipio para ver el clima
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<footer class="footer mt-auto py-3 bg-dark text-white">
-  <div class="container text-center">
-    <span
-      >&copy; 2025 Adrian Rodriguez Fernandez - Todos los derechos
-      reservados</span
-    >
-  </div>
-</footer>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const API_URL =
-      "https://www.el-tiempo.net/api/json/v2/provincias/45/municipios/45168";
-    const contenido = document.getElementById("infoClima");
-
-    fetch(API_URL)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Error HTTP: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Respuesta de la API:", data); // <-- Debugging en consola
-        contenido.innerHTML = ""; // Limpiar "Cargando..."
-
-        // Verificar si hay datos antes de mostrarlos
-        if (!data.municipio || !data.temperaturas) {
-          contenido.innerHTML = "<p>No hay datos disponibles.</p>";
-          return;
-        }
-
-        contenido.innerHTML += `<p><strong>Municipio:</strong> ${data.municipio.NOMBRE}</p>`;
-        contenido.innerHTML += `<p><strong>Provincia:</strong> ${data.municipio.NOMBRE_PROVINCIA}</p>`;
-        contenido.innerHTML += `<p><strong>Temperatura Actual:</strong> ${data.temperatura_actual}ºC  </p>`;
-        contenido.innerHTML += `<p><strong>Temperatura Máxima:</strong> ${data.temperaturas.max}°C</p>`;
-        contenido.innerHTML += `<p><strong>Temperatura Mínima:</strong> ${data.temperaturas.min}°C</p>`;
-        contenido.innerHTML += `<p><strong>Humedad:</strong> ${data.humedad}%</p>`;
-        contenido.innerHTML += `<p><strong>Probabilidad de lluvia:</strong> ${data.pronostico.hoy.prob_precipitacion}%</p>`;
-      })
-      .catch((error) => {
-        console.error("Error al obtener los datos:", error); // <-- Mostrar error en consola
-        contenido.innerHTML = `<p style="color: red;">Error al cargar los datos.</p>`;
-      });
-  });
-</script>
-    </div>
+    <footer class="footer mt-auto py-3 bg-dark text-white">
+      <div class="container text-center">
+        <span
+          >&copy; 2025 Adrian Rodriguez Fernandez - Todos los derechos
+          reservados</span
+        >
+      </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const select = document.getElementById("indexSelect");
+      const tableBody = document.getElementById("weather-data");
+
+      // Cargar municipios de Toledo
+      fetch("https://www.el-tiempo.net/api/json/v2/provincias/45/municipios")
+        .then((response) => response.json())
+        .then((data) => {
+          data.municipios.forEach((muni) => {
+            const option = document.createElement("option");
+
+            // Solo los primeros 5 dígitos del CODIGOINE
+            const codigo5 = muni.CODIGOINE.substring(0, 5);
+
+            option.value = codigo5;
+            option.textContent = muni.NOMBRE;
+            select.appendChild(option);
+          });
+        });
+
+      // Al seleccionar un municipio, obtener el clima
+      select.addEventListener("change", () => {
+        const codigo = select.value;
+
+        if (!codigo) return;
+
+        fetch(
+          `https://www.el-tiempo.net/api/json/v2/provincias/45/municipios/${codigo}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            tableBody.innerHTML = `
+                      <tr>
+                          <td>${data.municipio.NOMBRE}</td>
+                          <td>${data.municipio.NOMBRE_PROVINCIA}</td>
+                          <td>${
+                            data.stateSky?.description || "No disponible"
+                          }</td>
+                          <td>${data.temperaturas.max || "-"}</td>
+                          <td>${data.temperaturas.min || "-"}</td>
+                          <td>${
+                            data.pronostico.hoy.prob_precipitacion ??
+                            "No disponible"
+                          }%</td>
+                          <td>${data.humedad ?? "-"}%</td>
+                      </tr>
+                  `;
+          })
+          .catch((err) => {
+            console.error("Error al obtener datos:", err);
+            tableBody.innerHTML = `<tr><td colspan="7">Error al obtener datos meteorológicos</td></tr>`;
+          });
+      });
+    </script>
   </body>
 </html>

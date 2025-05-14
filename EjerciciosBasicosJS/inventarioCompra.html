@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tienda con Carrito</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f4f4f4;
+        padding: 20px;
+      }
+      h2 {
+        text-align: center;
+      }
+      .tienda,
+      .carrito {
+        max-width: 800px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+      }
+      .producto {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      button {
+        padding: 5px 10px;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Tienda Virtual</h2>
+
+    <div class="tienda">
+      <h3>Productos Disponibles</h3>
+      <div id="productos"></div>
+    </div>
+
+    <div class="carrito">
+      <h3>Carrito de Compra</h3>
+      <div id="carrito"></div>
+      <p id="total"></p>
+      <button onclick="confirmarCompra()">✅ Confirmar Compra</button>
+    </div>
+
+    <script>
+      const productos = [
+        { id: 1, nombre: "Camiseta", categoria: "Ropa", precio: 20, stock: 10 },
+        { id: 2, nombre: "Pantalón", categoria: "Ropa", precio: 35, stock: 5 },
+        {
+          id: 3,
+          nombre: "Laptop",
+          categoria: "Electrónica",
+          precio: 800,
+          stock: 3,
+        },
+        {
+          id: 4,
+          nombre: "Auriculares",
+          categoria: "Electrónica",
+          precio: 50,
+          stock: 7,
+        },
+        { id: 5, nombre: "Libro", categoria: "Libros", precio: 15, stock: 20 },
+      ];
+
+      const descuentos = {
+        Ropa: 0.1, // 10%
+        Electrónica: 0.2, // 20%
+        Libros: 0.05, // 5%
+      };
+
+      let carrito = [];
+
+      function mostrarProductos() {
+        const contenedor = document.getElementById("productos");
+        contenedor.innerHTML = "";
+        productos.forEach((p) => {
+          const descuento = descuentos[p.categoria] || 0;
+          const precioFinal = (p.precio * (1 - descuento)).toFixed(2);
+          contenedor.innerHTML += `
+        <div class="producto">
+          <strong>${p.nombre}</strong> - ${p.categoria} - 
+          <s>${p.precio}€</s> <strong>${precioFinal}€</strong> - 
+          Stock: ${p.stock}
+          <button onclick="agregarAlCarrito(${p.id})">Añadir</button>
+        </div>
+      `;
+        });
+      }
+
+      function agregarAlCarrito(id) {
+        const prod = productos.find((p) => p.id === id);
+        if (!prod || prod.stock === 0) {
+          alert("Producto sin stock.");
+          return;
+        }
+
+        const enCarrito = carrito.find((c) => c.id === id);
+        if (enCarrito) {
+          if (enCarrito.cantidad < prod.stock) {
+            enCarrito.cantidad++;
+          } else {
+            alert("No hay más stock disponible.");
+          }
+        } else {
+          carrito.push({ ...prod, cantidad: 1 });
+        }
+        mostrarCarrito();
+      }
+
+      function quitarDelCarrito(id) {
+        const item = carrito.find((c) => c.id === id);
+        if (item.cantidad > 1) {
+          item.cantidad--;
+        } else {
+          carrito = carrito.filter((c) => c.id !== id);
+        }
+        mostrarCarrito();
+      }
+
+      function mostrarCarrito() {
+        const contenedor = document.getElementById("carrito");
+        const totalDiv = document.getElementById("total");
+        contenedor.innerHTML = "";
+
+        let total = 0;
+
+        if (carrito.length === 0) {
+          contenedor.innerHTML = "<p>El carrito está vacío.</p>";
+          totalDiv.innerHTML = "";
+          return;
+        }
+
+        carrito.forEach((item) => {
+          const descuento = descuentos[item.categoria] || 0;
+          const precioFinal = item.precio * (1 - descuento);
+          const subtotal = precioFinal * item.cantidad;
+          total += subtotal;
+
+          contenedor.innerHTML += `
+        <div class="producto">
+          ${item.nombre} - ${item.cantidad} x ${precioFinal.toFixed(
+            2
+          )}€ = ${subtotal.toFixed(2)}€
+          <button onclick="quitarDelCarrito(${item.id})">Quitar</button>
+        </div>
+      `;
+        });
+
+        totalDiv.innerHTML = `<strong>Total: ${total.toFixed(2)}€</strong>`;
+      }
+
+      function confirmarCompra() {
+        if (carrito.length === 0) {
+          alert("Tu carrito está vacío.");
+          return;
+        }
+
+        carrito.forEach((item) => {
+          const prod = productos.find((p) => p.id === item.id);
+          prod.stock -= item.cantidad;
+        });
+
+        alert("¡Compra realizada con éxito!");
+
+        carrito = [];
+        mostrarProductos();
+        mostrarCarrito();
+      }
+
+      // Inicializar
+      mostrarProductos();
+      mostrarCarrito();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pedido y Producto</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 30px;
+        background-color: #f0f0f0;
+      }
+      .contenedor {
+        background-color: white;
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+      }
+      .producto {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h2>🧾 Detalle del Pedido</h2>
+      <div id="detalle"></div>
+    </div>
+
+    <script>
+      class Producto {
+        constructor(nombre, precio, cantidad) {
+          this.nombre = nombre;
+          this.precio = precio;
+          this.cantidad = cantidad;
+        }
+
+        subtotal() {
+          return this.precio * this.cantidad;
+        }
+      }
+
+      class Pedido {
+        constructor() {
+          this.productos = [];
+          this.descuento = 0; // en porcentaje
+        }
+
+        agregarProducto(producto) {
+          this.productos.push(producto);
+        }
+
+        aplicarDescuento(porcentaje) {
+          this.descuento = porcentaje;
+        }
+
+        calcularTotal() {
+          const totalSinDescuento = this.productos.reduce(
+            (total, p) => total + p.subtotal(),
+            0
+          );
+          const totalConDescuento =
+            totalSinDescuento * (1 - this.descuento / 100);
+          return totalConDescuento;
+        }
+
+        mostrarDetalle() {
+          const contenedor = document.getElementById("detalle");
+          contenedor.innerHTML = "";
+
+          this.productos.forEach((p) => {
+            contenedor.innerHTML += `
+          <div class="producto">
+            <strong>${p.nombre}</strong><br>
+            Precio: ${p.precio}€ x ${p.cantidad} = ${p.subtotal().toFixed(2)}€
+          </div>
+        `;
+          });
+
+          contenedor.innerHTML += `
+        <p><strong>Descuento aplicado:</strong> ${this.descuento}%</p>
+        <p><strong>Total a pagar:</strong> ${this.calcularTotal().toFixed(
+          2
+        )}€</p>
+      `;
+        }
+      }
+
+      // Ejemplo de uso
+      const pedido = new Pedido();
+      pedido.agregarProducto(new Producto("Camiseta", 20, 2));
+      pedido.agregarProducto(new Producto("Pantalón", 35, 1));
+      pedido.agregarProducto(new Producto("Zapatos", 50, 1));
+      pedido.aplicarDescuento(10); // Aplica 10% de descuento
+
+      pedido.mostrarDetalle();
+    </script>
+  </body>
+</html>

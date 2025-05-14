@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validador de Contraseña</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 30px;
+      }
+      .contenedor {
+        max-width: 500px;
+        margin: auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+      }
+      input,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 16px;
+      }
+      .condiciones {
+        margin-top: 20px;
+        font-size: 16px;
+      }
+      .error {
+        color: red;
+      }
+      .exito {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h2>Validador de Contraseña</h2>
+
+      <label for="contrasena">Introduce tu contraseña:</label>
+      <input type="password" id="contrasena" placeholder="Contraseña" />
+
+      <button onclick="validarContrasena()">Validar Contraseña</button>
+
+      <div id="resultado"></div>
+      <div id="condiciones" class="condiciones"></div>
+    </div>
+
+    <script>
+      function validarContrasena() {
+        const contrasena = document.getElementById("contrasena").value;
+        const resultadoDiv = document.getElementById("resultado");
+        const condicionesDiv = document.getElementById("condiciones");
+
+        // Condiciones de validación
+        const tieneMinLongitud = contrasena.length >= 10;
+        const tieneMayuscula = /[A-Z]/.test(contrasena);
+        const tieneMinuscula = /[a-z]/.test(contrasena);
+        const tieneNumero = /\d/.test(contrasena);
+        const tieneEspecial = /[!@#$%^&*(),.?":{}|<>]/.test(contrasena);
+
+        // Contar cuántas condiciones se cumplen
+        const condicionesCumplidas = [
+          tieneMinLongitud,
+          tieneMayuscula,
+          tieneMinuscula,
+          tieneNumero,
+          tieneEspecial,
+        ].filter((cond) => cond).length;
+
+        // Mostrar los resultados
+        if (condicionesCumplidas >= 3) {
+          resultadoDiv.innerHTML = "<p class='exito'>Contraseña válida.</p>";
+        } else {
+          resultadoDiv.innerHTML =
+            "<p class='error'>La contraseña no es válida. Faltan las siguientes condiciones:</p>";
+
+          const condicionesFaltantes = [];
+          if (!tieneMinLongitud)
+            condicionesFaltantes.push("Longitud mínima de 10 caracteres.");
+          if (!tieneMayuscula)
+            condicionesFaltantes.push("Al menos una letra mayúscula.");
+          if (!tieneMinuscula)
+            condicionesFaltantes.push("Al menos una letra minúscula.");
+          if (!tieneNumero) condicionesFaltantes.push("Al menos un número.");
+          if (!tieneEspecial)
+            condicionesFaltantes.push("Al menos un carácter especial.");
+
+          condicionesDiv.innerHTML =
+            "<ul>" +
+            condicionesFaltantes.map((cond) => `<li>${cond}</li>`).join("") +
+            "</ul>";
+        }
+      }
+    </script>
+  </body>
+</html>
